@@ -1,0 +1,40 @@
+server:
+   port: 8080
+https:
+  port: 443
+  ssl:
+    key-store: classpath:sample.jks
+    key-store-password: secret
+    key-password: password
+spring:
+   application:
+      name: microservice-provider-user
+   jpa:
+      generate-ddl: false
+      show-sql: true
+      hibernate:
+         ddl-auto: none
+   datasource:
+      #platform: h2
+      #driver-class-name: org.h2.Driver
+      #url: jdbc:h2:file:~/test
+      #username: sa
+      #password: 
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/springcloud?characterEncoding=utf8&useSSL=false
+      username: root
+      password: 123456
+      #schema: classpath:schema.sql
+      #data: classpath:data.sql
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:8761/eureka/
+   instance:
+      prefer-ip-address: true
+logging:
+   level:
+      root: INFO
+      org.hibernate: INFO
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+      org.hibernate.type.descriptor.sql.basicExtractor: TRACE
