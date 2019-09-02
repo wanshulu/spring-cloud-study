@@ -26,8 +26,6 @@ import com.sgcc.cloud.user.dao.UserRepository;
 @RestController
 public class UserController {
 	
-	private static final long serialVersionUID = 1L;
-
 	private static final String APPID = "wx78d88d1881aa87d5";
 	private static final String SECRET = "34fd3cc0765ed7397d0677473031f2eb";
 

@@ -1,8 +1,14 @@
+spring:
+   application:
+      name: microservice-discovery-eureka
 server:
    port: 8761
 eureka:
    client:
+      #是否将自己注册到Eureka Server，默认为ture，当前为Eureka服务，所以设置false
       registerWithEureka: false
+      #表示是否从Eureka Server获取注册信息，默认为ture，当前为单节点服务，不需要同步其他Eureka Server节点数据
       fetchRegistry: false
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址，默认为http://localhost:8761/eureka；多个送“,”隔开
       serviceUrl:
          defaultZone: http://localhost:8761/eureka
