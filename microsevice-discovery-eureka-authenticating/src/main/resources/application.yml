@@ -1,0 +1,24 @@
+spring:
+   application:
+      name: microservice-discovery-eureka-ha
+security:
+   basic:
+      enabled: true #开启基于 http basic的认证
+   user:
+      name: user
+      password: password123
+server:
+   port: 8761
+eureka:
+   instance:
+      #指定当Profiles=peer1时，主机名是peer1
+      hostname: peer1
+   client:
+      #是否将自己注册到Eureka Server，默认为ture，当前为Eureka服务，所以设置false
+      registerWithEureka: false
+      #表示是否从Eureka Server获取注册信息，默认为ture，当前为单节点服务，不需要同步其他Eureka Server节点数据
+      fetchRegistry: false
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址，默认为http://localhost:8761/eureka；多个送“,”隔开
+      serviceUrl:
+         #将自己注册到peer2这个Eureka上面去
+         defaultZone: http://user:password123@localhost:8761/eureka
